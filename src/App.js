@@ -1,7 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import Feed from "./components/Feed";
 import Navbar from "./components/Navbar";
-import Downbar from "./components/Downbar";
+import Bottombar from "./components/Bottombar";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Stack direction="row" spacing={2} justifyContent="center">
         <Feed/>
       </Stack>
-      <Downbar/>
+      <Bottombar />
     </Box>
   )
 }
