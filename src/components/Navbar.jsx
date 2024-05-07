@@ -1,6 +1,6 @@
-import { Pets } from '@mui/icons-material';
-import { AppBar, Avatar, Box, Toolbar, Typography, styled } from '@mui/material';
+import { AppBar, Avatar, Box, Toolbar, styled } from '@mui/material';
 import React from 'react';
+import Logo from "../public/logosm.png"
 
 const StyledToolbar = styled(Toolbar)({
   display:"flex",
@@ -18,7 +18,7 @@ const Navbar = () => {
     <AppBar position="sticky" sx={{backgroundColor:"white"}}>
       <StyledToolbar>
         <Box sx={{display:"block"}}> 
-          <img height={50}  src="logosm.png" alt="" />
+          <img height={50}  src={Logo} alt="" />
         </Box>
         <Icon>
           <Avatar variant="plain" />

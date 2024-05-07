@@ -16,7 +16,7 @@ const Post = () => {
             <Typography p={0} gutterBottom variant="h5" component="div">
               Вакансия
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography p={0} variant="body2" color="text.secondary">
                 «Тазалык» муниципалдык ишканасына короо тазалоочулар керек
             </Typography>
           </CardContent>

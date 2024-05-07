@@ -1,6 +1,6 @@
 import React from 'react'
 import Post from './Post'
-import { Box, Grid, Container, Typography } from '@mui/material'
+import { Grid, Container, Typography } from '@mui/material'
 
 const Feed = () => {
   return (
