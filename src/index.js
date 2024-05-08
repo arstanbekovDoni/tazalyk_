@@ -4,6 +4,7 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Add from "./pages/Add";
 import Reports from "./pages/Reports";
+import NewsDetail from "./pages/NewsDetail";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/news/:id",
+    element: <NewsDetail />,
   },
 ]);
 

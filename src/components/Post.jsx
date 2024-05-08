@@ -6,11 +6,18 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({ id, title, img, subtitle }) => {
+  const navigate = useNavigate();
+
+  const navigateToNews = () => {
+    navigate(`/news/${id}`);
+  };
+
   return (
     <Card sx={{ maxHeight: 246 }}>
-      <CardActionArea>
+      <CardActionArea onClick={navigateToNews}>
         <CardMedia
           component="img"
           height="140"

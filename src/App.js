@@ -1,18 +1,18 @@
 import { Box, Stack } from "@mui/material";
-import Feed from "./components/Feed";
+import Feed from "./pages/Feed";
 import Navbar from "./components/Navbar";
 import Bottombar from "./components/Bottombar";
 
 function App() {
   return (
     <Box>
-      <Navbar/> 
+      <Navbar />
       <Stack direction="row" spacing={2} justifyContent="center">
-        <Feed/>
+        <Feed />
       </Stack>
       <Bottombar />
     </Box>
-  )
+  );
 }
 
-export default App
+export default App;
