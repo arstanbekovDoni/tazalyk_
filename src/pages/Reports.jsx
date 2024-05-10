@@ -1,12 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Bottombar from '../components/Bottombar'
 import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import TabPanel from '@mui/lab/TabPanel';
-import TabContext from '@mui/lab/TabContext';
+import PropTypes from 'prop-types';
+import PocketBase from "pocketbase";
+import NewsSkeleton from "../components/NewsSkeleton";
+import { Grid, Typography } from '@mui/material';
+
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+CustomTabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 const StyledTabs = styled((props) => (
   <Tabs
@@ -32,8 +67,7 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.pxToRem(15),
     marginRight: theme.spacing(1),
-    color: 'rgba(255, 255, 255, 0.7)',
-    color: 'black', 
+    color: 'black',
     '&.Mui-selected': {
       color: 'black',
     },
@@ -44,7 +78,24 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
 );
 
 function Reports() {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState(0);
+  const [loading, setLoading] = useState(true);
+  const [news, setReports] = useState([]);
+
+  const pb = new PocketBase("https://tazalyk.fly.dev/");
+
+  const getReports = async () => {
+    const result = await pb.collection("tazalyk_reports").getList(1, 50, {
+      $autoCancel: false,
+    });
+
+    setReports(result);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getReports();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -52,18 +103,34 @@ function Reports() {
   return (
     <Box sx={{ width: '100%' }}>
       <Navbar/>
-      <TabContext value={value}>
-        <Box pt={10}>
-          <StyledTabs onChange={handleChange} aria-label="styled tabs example">
-            <StyledTab label="Ожидают" value="1" />
-            <StyledTab label="В процессе" value="2" />
-            <StyledTab label="Сделано" value="3" />
+        <Box mt={2} sx={{ borderBottom: 1, borderColor:  "divider"}}>
+          <StyledTabs value={value} onChange={handleChange} aria-label="styled tabs example">
+            <StyledTab label="Ожидают" {...a11yProps(0)} />
+            <StyledTab label="В процессе" {...a11yProps(1)} />
+            <StyledTab label="Сделано" {...a11yProps(2)} />
           </StyledTabs>
         </Box>
-          <TabPanel value="1">Item One</TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
-          <TabPanel value="3">Item Three</TabPanel>
-      </TabContext>
+        <Grid container spacing={1.5}>
+          {!loading ? (
+            news?.items?.map((e) => (
+              <>
+              <Grid key={e.id} item xs={12} sm={6} md={4}>
+                <CustomTabPanel value={value} index={0} id={e.id} title={e.title} img={e.img_before} >
+                </CustomTabPanel>
+              </Grid>
+              </>
+            ))
+          ) : (
+            <NewsSkeleton />
+          )}
+        </Grid>
+        <CustomTabPanel value={value} index={1}>
+          Item Two
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          Item Three
+        </CustomTabPanel>
+        
       <Bottombar />
     </Box>
   )

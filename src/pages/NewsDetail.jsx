@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import PocketBase from "pocketbase";
-import { Container } from "@mui/material";
+import { Box, CircularProgress, Container, Typography, AppBar } from "@mui/material";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 
 const NewsDetail = () => {
   const [loading, setLoading] = useState(true);
@@ -23,18 +25,28 @@ const NewsDetail = () => {
 
   return (
     <>
-      <h1>{param.id}</h1>
       {!loading ? (
-        <Container>
+      <>
+        <Box>
+          <AppBar position="sticky" sx={{backgroundColor:"white"}}>
+            <NavLink to="/"><Box ml={1} mt={2} sx={{display:"flex", height:'40px'}}><ArrowBackIosIcon /><Typography>Назад</Typography></Box></NavLink>
+          </AppBar>
+        </Box>
+        <Container mt={4}>
           <img
             height={120}
             src={`https://tazalyk.fly.dev/api/files/tazalyk_news/${post.id}/${post.img}`}
             alt=""
+            
           />
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </Container>
+      </>
       ) : (
-        <h1>Loading...</h1>
+        <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            Загрузка... &nbsp;
+            <CircularProgress />
+        </Box>
       )}
     </>
   );

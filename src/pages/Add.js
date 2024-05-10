@@ -1,8 +1,9 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Bottombar from '../components/Bottombar'
-import { Grid, Container, Typography, CardActionArea, CardMedia, Card, Box, TextField, Button, Icon, Avatar } from '@mui/material'
+import { Grid, Container, Typography, CardActionArea, CardMedia, Card, Box, TextField, Button} from '@mui/material'
 import makephoto from '../public/makephoto.png'
+import { Link } from 'react-router-dom'
 
 function Add() {
   return (
@@ -14,7 +15,7 @@ function Add() {
         
     >
       <Navbar/>
-        <Container>
+        <Container sx={{alignItems:'center'}}>
             <Typography mt={6} pb={2} fontWeight={550} gutterBottom variant="h7" component="div" >
                 Добавить жалобу
             </Typography>
@@ -36,7 +37,7 @@ function Add() {
                     multiline
                     rows={2}/>
                 <Button mr={2} variant="outlined" color="success">Отмена</Button>
-                <Button variant="contained" color="success">+  Отправить</Button>
+                <Link to={"/login"} underline="none"><Button variant="contained" color="success">+  Отправить</Button></Link>
                 <Typography mt={2} pb={1} fontWeight={550} sx={{color:"green"}} gutterBottom variant="h5" component="div" >
                     МП "Тазалык"
                 </Typography>
