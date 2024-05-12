@@ -32,9 +32,10 @@ const NewsDetail = () => {
             <NavLink to="/"><Box ml={1} mt={2} sx={{display:"flex", height:'40px'}}><ArrowBackIosIcon /><Typography>Назад</Typography></Box></NavLink>
           </AppBar>
         </Box>
-        <Container mt={4}>
+        <Container pt={4}>
           <img
-            height={120}
+            height={160}
+            
             src={`https://tazalyk.fly.dev/api/files/tazalyk_news/${post.id}/${post.img}`}
             alt=""
             

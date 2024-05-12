@@ -104,9 +104,8 @@ const Loginpage = () => {
                             </div>
                         </div>
                         <p className='frgpass' style={{color:"black",fontWeight:"bold"}}><NavLink to="/password-reset">Забыли пароль?</NavLink> </p>
-                        <button className='btn' onClick={loginuser}>Login</button>
-                        <p className='p'>Нет аккаунта? <NavLink to="/register">Зарегистриоваться</NavLink></p>
-                        
+                        <button className='btn' onClick={loginuser}>Войти</button>
+                        <p className='p'>Нет аккаунта? <NavLink to="/register">Зарегистриоваться</NavLink></p>        
                     </form>
                     <ToastContainer />
                 </div>
