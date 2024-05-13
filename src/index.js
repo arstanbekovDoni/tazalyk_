@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Add from "./pages/Add";
-import Reports from "./pages/Reports";
+import Reports from "./pages/reports/Reports";
 import NewsDetail from "./pages/NewsDetail";
 import Login from "./components/Loginpage";
 import Register from "./components/Register";
@@ -28,15 +28,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/register",
-    element: <Register/>,
+    element: <Register />,
   },
   {
     path: "/password-reset",
-    element: <PasswordReset/>,
+    element: <PasswordReset />,
   },
 ]);
 
