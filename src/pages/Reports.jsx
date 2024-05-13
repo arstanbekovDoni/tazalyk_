@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import PocketBase from "pocketbase";
 import NewsSkeleton from "../components/NewsSkeleton";
 import { Grid, Typography } from '@mui/material';
+import Reportpost from '../components/Reportpost';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -115,7 +116,8 @@ function Reports() {
             news?.items?.map((e) => (
               <>
               <Grid key={e.id} item xs={12} sm={6} md={4}>
-                <CustomTabPanel value={value} index={0} id={e.id} title={e.title} img={e.img_before} >
+                <CustomTabPanel value={value} index={0} >
+                  <Reportpost id={e.id} title={e.title} img={e.img_before} />
                 </CustomTabPanel>
               </Grid>
               </>
