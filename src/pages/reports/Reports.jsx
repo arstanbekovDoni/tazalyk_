@@ -12,6 +12,7 @@ import { Grid, Typography } from "@mui/material";
 import Reportpost from "../../components/Reportpost";
 import Todos from "./Todos";
 import Doings from "./Doings";
+import Dones from "./Dones"
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -119,34 +120,15 @@ function Reports() {
           <StyledTab label="Сделано" {...a11yProps(2)} />
         </StyledTabs>
       </Box>
-      {/* <Grid container spacing={1.5}>
-        {!loading ? (
-          news?.items
-            ?.filter((e) => e.status == "doing")
-            .map((rep) => (
-              <>
-                <Grid key={rep.id} item xs={12} sm={6} md={4}>
-                  <CustomTabPanel value={value} index={0}>
-                    <Reportpost
-                      id={rep.id}
-                      title={rep.title}
-                      img={rep.img_before}
-                    />
-                  </CustomTabPanel>
-                </Grid>
-              </>
-            ))
-        ) : (
-          <NewsSkeleton />
-        )}
-      </Grid> */}
+      <CustomTabPanel value={value} index={0}>
+        <Todos></Todos>
+      </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Doings></Doings>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Todos></Todos>
+        <Dones></Dones>
       </CustomTabPanel>
-
       <Bottombar />
     </Box>
   );

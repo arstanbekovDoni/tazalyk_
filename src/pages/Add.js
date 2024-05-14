@@ -40,7 +40,7 @@ function Add() {
                     rows={2}/>
                 <Box mt={1} sx={{display:'flex', justifyContent:'space-between'}}>
                     <Button variant="outlined" color="success">Отмена</Button>
-                    <Link to={"/login"} underline="none"><Button variant="contained" color="success">+  Отправить</Button></Link>
+                    <Link to={"/login"} underline="none"><Button variant="contained" color="success">Отправить</Button></Link>
                 </Box>
                 <Typography mt={4} pb={1} fontWeight={550} sx={{color:"green"}} gutterBottom variant="h5" component="div" >
                     МП "Тазалык"

@@ -33,7 +33,7 @@ CustomTabPanel.propTypes = {
 };
 
 
-const Todos = () => {
+const Dones = () => {
   const [value, setValue] = useState(0);
   const [loading, setLoading] = useState(true);
   const [reports, setReports] = useState([]);
@@ -43,7 +43,7 @@ const Todos = () => {
   const getReports = async () => {
     const result = await pb.collection("tazalyk_reports").getList(1, 50, {
       $autoCancel: false,
-      filter: "status = 'to do'",
+      filter: "status = 'done'",
     });
 
     setReports(result);
@@ -71,4 +71,4 @@ const Todos = () => {
   );
 };
 
-export default Todos;
+export default Dones;
