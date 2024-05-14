@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import PocketBase from "pocketbase";
-import { Box, CircularProgress, Container, Typography, AppBar } from "@mui/material";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import "./det.css"
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Typography,
+  AppBar,
+} from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import "./det.css";
 
 const NewsDetail = () => {
   const [loading, setLoading] = useState(true);
@@ -26,25 +32,43 @@ const NewsDetail = () => {
   return (
     <>
       {!loading ? (
-      <>
-        <Box>
-          <AppBar position="sticky" sx={{backgroundColor:"white"}}>
-            <NavLink to="/" sx={{underline: 'none'}}><Box ml={1} mt={2} sx={{display:"flex", height:'40px'}}><ArrowBackIosIcon /><Typography>Назад</Typography></Box></NavLink>
-          </AppBar>
-        </Box>
-        <Container className="Dancho" >
-          <img
-            height={160}
-            src={`https://tazalyk.fly.dev/api/files/tazalyk_news/${post.id}/${post.img}`}
-            alt=""
-          />
-        </Container>  
-          <div className="content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
-      </>
+        <>
+          <Box>
+            <AppBar position="sticky" sx={{ backgroundColor: "white" }}>
+              <NavLink to="/" sx={{ underline: "none" }}>
+                <Box ml={1} mt={2} sx={{ display: "flex", height: "40px" }}>
+                  <ArrowBackIosIcon />
+                  <Typography>Назад</Typography>
+                </Box>
+              </NavLink>
+            </AppBar>
+          </Box>
+          <Container className="Dancho">
+            <p>{post?.updated}</p>
+            <img
+              height={200}
+              width={"100%"}
+              style={{ objectFit: "cover", borderRadius: "15px" }}
+              src={`https://tazalyk.fly.dev/api/files/tazalyk_news/${post.id}/${post.img}`}
+              alt=""
+            />
+          </Container>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          ></div>
+        </>
       ) : (
-        <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "100vh" }}>
-            Загрузка... &nbsp;
-            <CircularProgress />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          Загрузка... &nbsp;
+          <CircularProgress />
         </Box>
       )}
     </>

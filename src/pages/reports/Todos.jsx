@@ -5,7 +5,6 @@ import Reportpost from "../../components/Reportpost";
 import PropTypes from "prop-types";
 import NewsSkeleton from "../../components/NewsSkeleton";
 
-
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -32,7 +31,6 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-
 const Todos = () => {
   const [value, setValue] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -44,6 +42,7 @@ const Todos = () => {
     const result = await pb.collection("tazalyk_reports").getList(1, 50, {
       $autoCancel: false,
       filter: "status = 'to do'",
+      sort: "-votes",
     });
 
     setReports(result);
@@ -62,6 +61,7 @@ const Todos = () => {
             id={e.id}
             title={e.title}
             img={e.img_before}
+            votes={e.votes}
           />
         </CustomTabPanel>
       ))}

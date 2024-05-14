@@ -12,7 +12,7 @@ import { Grid, Typography } from "@mui/material";
 import Reportpost from "../../components/Reportpost";
 import Todos from "./Todos";
 import Doings from "./Doings";
-import Dones from "./Dones"
+import Dones from "./Dones";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -26,7 +26,7 @@ function CustomTabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
