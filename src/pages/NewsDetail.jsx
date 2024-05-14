@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./det.css";
+import { formatDate } from "../utils/dateformatter";
 
 const NewsDetail = () => {
   const [loading, setLoading] = useState(true);
@@ -44,7 +45,7 @@ const NewsDetail = () => {
             </AppBar>
           </Box>
           <Container className="Dancho">
-            <p>{post?.updated}</p>
+            <p>{formatDate(post?.updated)}</p>
             <img
               height={200}
               width={"100%"}

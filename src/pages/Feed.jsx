@@ -40,7 +40,12 @@ const Feed = () => {
         {!loading ? (
           news?.items?.map((e) => (
             <Grid key={e.id} item xs={12} sm={6} md={4}>
-              <Post id={e.id} subtitle={e.title} img={e.img} />
+              <Post
+                id={e.id}
+                subtitle={e.title}
+                img={e.img}
+                updated={e.updated}
+              />
             </Grid>
           ))
         ) : (

@@ -7,8 +7,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../utils/dateformatter";
 
-const Post = ({ id, title, img, subtitle }) => {
+const Post = ({ id, title, img, subtitle, updated }) => {
   const navigate = useNavigate();
 
   const navigateToNews = () => {
@@ -25,11 +26,11 @@ const Post = ({ id, title, img, subtitle }) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography p={0} gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography p={0} variant="body2" color="text.secondary">
+          <Typography p={0} variant="body1" color="text.secondary">
             {subtitle}
+          </Typography>
+          <Typography variant="body2" textAlign={"end"}>
+            {formatDate(updated)}
           </Typography>
         </CardContent>
       </CardActionArea>
