@@ -45,7 +45,6 @@ const NewsDetail = () => {
             </AppBar>
           </Box>
           <Container className="Dancho">
-            <p>{formatDate(post?.updated)}</p>
             <img
               height={200}
               width={"100%"}
@@ -53,6 +52,7 @@ const NewsDetail = () => {
               src={`https://tazalyk.fly.dev/api/files/tazalyk_news/${post.id}/${post.img}`}
               alt=""
             />
+            <p>{formatDate(post?.updated)}</p>
           </Container>
           <div
             className="content"

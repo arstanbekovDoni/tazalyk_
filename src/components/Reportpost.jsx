@@ -6,21 +6,41 @@ import {
   Typography,
   CardActionArea,
   Button,
+  IconButton,
+  Stack,
 } from "@mui/material";
 import React, { useState } from "react";
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { useNavigate } from "react-router-dom";
+import './btn.css'
 
 const Reportpost = ({ id, title, img, description_before, votes }) => {
+  const [like,setlike] = useState(votes)
+
+  const [likeactive,setlikeactive] = useState(false)
+
+  function likef(){
+    if(likeactive){
+      setlikeactive(false)
+      setlike(like-1)
+    }
+    else{
+      setlikeactive(true)
+      setlike(like+1)
+    }
+  }
+
   const navigate = useNavigate();
 
   const navigateToReports = () => {
     navigate(`/Reports/${id}`);
   };
 
-  const [vote, setVote] = useState(votes);
 
   return (
+    <Stack direction="row" spacing={2}>
     <Card sx={{ display: "inline", ".MuiBox-root.css-19kzrtu": { p: 0 } }}>
+      
       <CardActionArea
         onClick={navigateToReports}
         sx={{
@@ -56,15 +76,14 @@ const Reportpost = ({ id, title, img, description_before, votes }) => {
               <Typography variant="body2">{title}</Typography>
             </CardContent>
             <CardContent>
-              <Typography variant="body2">{vote}</Typography>
+            
             </CardContent>
           </Box>
         </Box>
       </CardActionArea>
-      <Button variant="outlined" onClick={() => setVote(vote + 1)}>
-        Vote
-      </Button>
     </Card>
+    <button onClick={likef} className={[likeactive ? 'active-like' : null,'button'].join(' ')}>Like {like}</button>
+    </Stack>
   );
 };
 

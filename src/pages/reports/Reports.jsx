@@ -107,6 +107,7 @@ function Reports() {
   };
 
   return (
+    <>
     <Box sx={{ width: "100%" }}>
       <Navbar />
       <Box mt={2} sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -131,6 +132,8 @@ function Reports() {
       </CustomTabPanel>
       <Bottombar />
     </Box>
+    
+    </>
   );
 }
 

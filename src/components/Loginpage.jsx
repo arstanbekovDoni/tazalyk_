@@ -88,7 +88,6 @@ const Loginpage = () => {
                         <h1>Тазалык</h1>
                         <p>Пожалуйста введите свои данные для входа</p>
                     </div>
-
                     <form>
                         <div className="form_input">
                             <label htmlFor="email">Почта</label>
