@@ -43,16 +43,16 @@ function Add() {
                     <Link to={"/login"} underline="none"><Button variant="contained" color="success">Отправить</Button></Link>
                 </Box>
                 <Typography mt={4} pb={1} fontWeight={550} sx={{color:"green"}} gutterBottom variant="h5" component="div" >
-                    МП "Тазалык"
+                    GREEN TOKMOK
                 </Typography>
                 <Typography mt={2} pb={1} fontWeight={450} sx={{color:"black"}} gutterBottom variant="h7" component="div" >
-                    <LocationOnOutlinedIcon color="success" /> ул. Ростовская №19б
+                    <LocationOnOutlinedIcon color="success" /> ул. Кирова 16
                 </Typography>
                 <Typography mt={1} pb={1} fontWeight={450} sx={{color:"black"}} gutterBottom variant="h7" component="div" >
-                    <EmailOutlined color="success"/> mptazalyk@mail.ru
+                    <EmailOutlined color="success"/> greentokmok@mail.ru
                 </Typography>
                 <Typography mt={1} pb={1} fontWeight={450} sx={{color:"black"}} gutterBottom variant="h7" component="div" >
-                    <LocalPhoneOutlinedIcon color="success"/> Тел:34-51-02
+                    <LocalPhoneOutlinedIcon color="success"/> Тел:0555-555-555
                 </Typography>
 
         </Container>

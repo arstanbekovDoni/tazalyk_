@@ -8,6 +8,7 @@ import {
   Button,
   IconButton,
   Stack,
+  Link,
 } from "@mui/material";
 import React, { useState } from "react";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -75,14 +76,11 @@ const Reportpost = ({ id, title, img, description_before, votes }) => {
             <CardContent>
               <Typography variant="body2">{title}</Typography>
             </CardContent>
-            <CardContent>
-            
-            </CardContent>
           </Box>
         </Box>
       </CardActionArea>
     </Card>
-    <button onClick={likef} className={[likeactive ? 'active-like' : null,'button'].join(' ')}>Like {like}</button>
+    <Link to={"/login"} underline="none"><button onClick={likef} className={[likeactive ? 'active-like' : null,'button'].join(' ')}>Like {like}</button></Link>
     </Stack>
   );
 };
