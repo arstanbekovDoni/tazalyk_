@@ -9,11 +9,10 @@ import {
   AppBar,
 } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import "./det.css";
-import { formatDate } from "../utils/dateformatter";
+import "../det.css";
+import { formatDate } from "../../utils/dateformatter";
 
-const reportsdetail = () => {
-
+const ReportsDetail = () => {
   const [loading, setLoading] = useState(true);
   const [reports, setReports] = useState({});
   const param = useParams();
@@ -81,4 +80,4 @@ const reportsdetail = () => {
   );
 };
 
-export default reportsdetail;
+export default ReportsDetail;

@@ -5,10 +5,9 @@ import Reportpost from "../../components/Reportpost";
 import PropTypes from "prop-types";
 import NewsSkeleton from "../../components/NewsSkeleton";
 
-
+import { useNavigate } from "react-router-dom";
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
-  
 
   return (
     <div
@@ -33,12 +32,11 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-
 const Doings = () => {
   const navigate = useNavigate();
 
-  const navigateToReports = () => {
-    navigate(`/Reports/${id}`);
+  const navigateToReports = (id) => {
+    navigate(`/reports/${id}`);
   };
 
   const [value, setValue] = useState(0);
@@ -66,7 +64,7 @@ const Doings = () => {
       {reports?.items?.map((e) => (
         <CustomTabPanel value={value} index={0}>
           <Reportpost
-            onClick={navigateToReports}
+            onClick={navigateToReports(e.id)}
             id={e.id}
             title={e.title}
             img={e.img_before}

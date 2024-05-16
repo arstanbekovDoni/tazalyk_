@@ -8,6 +8,7 @@ import NewsDetail from "./pages/NewsDetail";
 import Login from "./components/Loginpage";
 import Register from "./components/Register";
 import PasswordReset from "./components/PasswordReset";
+import ReportsDetail from "./pages/reports/Doingsdetail";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/reports",
     element: <Reports />,
+  },
+  {
+    path: "/reports/:id",
+    element: <ReportsDetail />,
   },
   {
     path: "/news/:id",
