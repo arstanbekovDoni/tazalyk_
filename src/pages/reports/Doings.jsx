@@ -8,6 +8,7 @@ import NewsSkeleton from "../../components/NewsSkeleton";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
+  
 
   return (
     <div
@@ -34,6 +35,12 @@ CustomTabPanel.propTypes = {
 
 
 const Doings = () => {
+  const navigate = useNavigate();
+
+  const navigateToReports = () => {
+    navigate(`/Reports/${id}`);
+  };
+
   const [value, setValue] = useState(0);
   const [loading, setLoading] = useState(true);
   const [reports, setReports] = useState([]);
@@ -59,6 +66,7 @@ const Doings = () => {
       {reports?.items?.map((e) => (
         <CustomTabPanel value={value} index={0}>
           <Reportpost
+            onClick={navigateToReports}
             id={e.id}
             title={e.title}
             img={e.img_before}

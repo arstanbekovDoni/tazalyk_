@@ -13,23 +13,8 @@ import {
 import React, { useState } from "react";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { useNavigate } from "react-router-dom";
-import './btn.css'
 
-const Reportpost = ({ id, title, img, description_before, votes }) => {
-  const [like,setlike] = useState(votes)
-
-  const [likeactive,setlikeactive] = useState(false)
-
-  function likef(){
-    if(likeactive){
-      setlikeactive(false)
-      setlike(like-1)
-    }
-    else{
-      setlikeactive(true)
-      setlike(like+1)
-    }
-  }
+const Reportpost = ({ id, title, img, description_before }) => {
 
   const navigate = useNavigate();
 
@@ -39,7 +24,6 @@ const Reportpost = ({ id, title, img, description_before, votes }) => {
 
 
   return (
-    <Stack direction="row" spacing={2}>
     <Card sx={{ display: "inline", ".MuiBox-root.css-19kzrtu": { p: 0 } }}>
       
       <CardActionArea
@@ -80,8 +64,6 @@ const Reportpost = ({ id, title, img, description_before, votes }) => {
         </Box>
       </CardActionArea>
     </Card>
-    <Link to={"/login"} underline="none"><button onClick={likef} className={[likeactive ? 'active-like' : null,'button'].join(' ')}>Like {like}</button></Link>
-    </Stack>
   );
 };
 
